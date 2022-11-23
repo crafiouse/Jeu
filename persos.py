@@ -1,4 +1,15 @@
 #https://excalidraw.com/#room=c32be8b72ac507f85b11,_00DXrB_vDc1R_d6D3GfZw
+from time import sleep
+from os import system
+import platform
+def clear():
+    if platform.system()== "Windows":
+        system('cls')
+    else:
+        system('clear') 
+from main import*
+
+        
 
 class Protagonistes:
     def __init__ (self,classe,nom=str,force=int,pv=int):
@@ -12,16 +23,18 @@ class Protagonistes:
         print(f"{self.nom} a attaqué {cible.nom} qui a perdu {self.force} pv. Il est maintenant à {cible.pv} pv")
         return cible.pv
     def choix_classe(self):
-        choix = int(input("Quelle classe voulez-vous incarner ? 1 : Sorcier \n 2 : Chevalier \n 3 : Elfe"))
+        choix = int(input("Quelle classe voulez-vous incarner ?\n 1 : Sorcier \n 2 : Chevalier \n 3 : Elfe"))
         match choix:
             case 1:
-                classe=Sorcier(20,2)
+                self.classe=Sorcier(20,2)
                 print("vous êtes désormais un sorcier")
-                return classe
+                sleep(2)
+                return self.classe
             case 2:
-                classe=Chevalier(10)
+                self.classe=Chevalier(10)
                 print("vous êtes désormais un Chevalier")
-                return classe
+                sleep(2)
+                return self.classe
             case 3:
                 print("tg")
     
