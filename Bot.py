@@ -19,5 +19,3 @@ class Antagonistes:
         cible.pv=cible.pv-self.force
         print(f"{self.nom} a attaqué {cible.nom} qui a perdu {self.force} pv. Il est maintenant à {cible.pv} pv")
         return cible.pv
-    
-        

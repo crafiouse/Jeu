@@ -1,4 +1,3 @@
-#https://excalidraw.com/#room=c32be8b72ac507f85b11,_00DXrB_vDc1R_d6D3GfZw
 from time import sleep
 from os import system
 import platform
@@ -37,30 +36,3 @@ class Protagonistes:
                 return self.classe
             case 3:
                 print("tg")
-    
-    
-class Sorcier:
-    def __init__(self,mana=int,potions=int):
-        self.mana=mana
-        self.potions=potions
-        
-    def soin(self):
-        if self.mana>5 and self.potions>1:
-            self.pv+=30/100*self.pv
-            self.mana-=5
-            self.potions-=1
-            
-class Chevalier:
-    def __init__(self,bouclier_dura=int):
-        self.bouclier_dura=bouclier_dura 
-    def bloquer(self,cible):
-        self.pv+=cible.force
-        self.bouclier_dura-=5
-        print(f"{self.nom} se prépare à parer la prochaine attaque")
-    
-    
-    
-    
-    
-    
-    

@@ -1,3 +1,6 @@
+#https://excalidraw.com/#room=c32be8b72ac507f85b11,_00DXrB_vDc1R_d6D3GfZw
+
+
 from os import system
 import platform
 def clear():
@@ -5,7 +8,7 @@ def clear():
         system('cls')
     else:
         system('clear') 
-        
+
 from time import sleep
 from persos import*
 a=input("quel est ton nom jeune aventurier\n")
