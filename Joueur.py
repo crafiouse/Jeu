@@ -1,5 +1,6 @@
 from time import sleep
 from os import system
+from random import randint
 import platform
 def clear():
     if platform.system()== "Windows":
@@ -7,17 +8,18 @@ def clear():
     else:
         system('clear') 
 from main import*
+from entite import*
 
         
 
-class Protagonistes:
+"""class Protagonistes:
     def __init__ (self,classe,nom=str,force=int,pv=int):
         self.nom=nom
         self.force=force
         self.pv=pv
         self.classe=classe
         
-    def attaquer(self,cible):
+   def attaquer(self,cible):
         cible.pv=cible.pv-self.force
         print(f"{self.nom} a attaqué {cible.nom} qui a perdu {self.force} pv. Il est maintenant à {cible.pv} pv")
         return cible.pv
@@ -35,4 +37,28 @@ class Protagonistes:
                 sleep(2)
                 return self.classe
             case 3:
-                print("tg")
+                print("tg")"""
+
+
+class Joueur(Entite):
+    def __init__(self,nom,hp,force,defense):
+        super().__init__(nom,hp,force,defense)
+        self.inventaire=[]
+        self.xp=0
+        self.xp_requis=10
+
+    def lvlup(self):
+        self.xp+=randint(1,3)
+        self.force+=randint(1,3)
+        self.defense+=randint(1,3)
+        self.xp=0
+        self.xp_requis+=5
+
+        
+    def ajout_inv(self,item):
+        self.inventaire.append(item)
+
+    def use_item(self,item):
+        pass
+        
+    

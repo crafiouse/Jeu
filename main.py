@@ -10,8 +10,9 @@ def clear():
         system('clear') 
 
 from time import sleep
-from persos import*
-a=input("quel est ton nom jeune aventurier\n")
+from Classes_gentils import*
+from Classes_mechants import*
+"""a=input("quel est ton nom jeune aventurier\n")
 test=Protagonistes(a,4,20)
 test.choix_classe
 perso=Protagonistes(classe)
@@ -22,6 +23,8 @@ print(f"L'aventure du jeune {perso.nom} commence")
 sleep(2)
 clear()
 mechant=Protagonistes("valentin",5,30)
-perso.attaquer(mechant)
+perso.attaquer(mechant)"""
 
-#definir random les potions du sorcier
+
+
+
