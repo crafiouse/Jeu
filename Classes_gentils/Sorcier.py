@@ -7,3 +7,5 @@ class Sorcier:
         if self.nbr_potions>0:
             self.hp+=10
             self.nbr_potions-=1
+        else:
+            print("Il ne reste plus de potions")
