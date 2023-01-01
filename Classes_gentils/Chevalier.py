@@ -1,4 +1,5 @@
-class Chevalier:
+import Joueur
+class Chevalier(Joueur):
     def __init__(self,nom,hp,force,defense,dura_bouclier):
         super().__init__(nom,hp,force,defense)
         self.dura_bouclier=dura_bouclier
