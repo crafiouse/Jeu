@@ -46,6 +46,7 @@ class Joueur(Entite):
         self.inventaire=[]
         self.xp=0
         self.xp_requis=10
+        self.executed = False
 
     def lvlup(self):
         self.xp+=randint(1,3)
@@ -54,11 +55,18 @@ class Joueur(Entite):
         self.xp=0
         self.xp_requis+=5
 
-        
+
     def ajout_inv(self,item):
         self.inventaire.append(item)
 
     def use_item(self,item):
         pass
-        
-    
+
+    def update_execute_status(self, enemy):
+        if not self.executed and isinstance(enemy, Giant):
+            execute_seuil = self.hp * 0.15
+            if self.hp <= execute_seuil:
+                self.executed = True
+                self.hp = 0
+                print(f"{self.name} a été exécuté par {enemy.name}!")
+

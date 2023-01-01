@@ -7,6 +7,7 @@ class Entite:
         self.poisoned = False
         self.poison_dura = 0
 
+
     def recevoir_degat(self,dmg):
         self.hp -= dmg
         if self.hp<0:
@@ -23,3 +24,5 @@ class Entite:
             self.poison_dura -= 1
             if self.poison_dura == 0:
                 self.poisoned = False
+
+
