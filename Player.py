@@ -7,9 +7,8 @@ def clear():
         system('cls')
     else:
         system('clear') 
-from main import*
 from entite import*
-
+from Classes_mechants.Geant import Geant
         
 
 """class Protagonistes:
@@ -18,7 +17,7 @@ from entite import*
         self.force=force
         self.pv=pv
         self.classe=classe
-        
+
    def attaquer(self,cible):
         cible.pv=cible.pv-self.force
         print(f"{self.nom} a attaqué {cible.nom} qui a perdu {self.force} pv. Il est maintenant à {cible.pv} pv")
@@ -41,8 +40,8 @@ from entite import*
 
 
 class Joueur(Entite):
-    def __init__(self,nom,hp,force,defense):
-        super().__init__(nom,hp,force,defense)
+    def __init__(self,nom,hp,force,defense,classe):
+        super().__init__(nom,hp,force,defense,classe)
         self.inventaire=[]
         self.xp=0
         self.xp_requis=10
@@ -62,11 +61,5 @@ class Joueur(Entite):
     def use_item(self,item):
         pass
 
-    def update_execute_status(self, enemy):
-        if not self.executed and isinstance(enemy, Giant):
-            execute_seuil = self.hp * 0.15
-            if self.hp <= execute_seuil:
-                self.executed = True
-                self.hp = 0
-                print(f"{self.name} a été exécuté par {enemy.name}!")
+
 

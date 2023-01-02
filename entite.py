@@ -1,9 +1,11 @@
+
 class Entite:
-    def __init__(self,nom,hp,force,defense):
+    def __init__(self,nom,hp,force,defense,classe):
         self.nom=nom
         self.hp=hp
         self.force=force
         self.defense=defense
+        self.classe=classe
         self.poisoned = False
         self.poison_dura = 0
 
@@ -14,8 +16,8 @@ class Entite:
             self.hp=0
 
     def infliger_degat(self,cible):
-        dmg=self.force-cible.defense
-        cible.recevoir_degat(dmg)
+            dmg=self.force-cible.defense
+            cible.recevoir_degat(dmg)
 
     def update_poison_status(self):
         if self.poisoned:

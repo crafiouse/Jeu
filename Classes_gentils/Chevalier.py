@@ -1,7 +1,7 @@
 from Player import Joueur
 class Chevalier(Joueur):
-    def __init__(self,nom,hp,force,defense,dura_bouclier):
-        super().__init__(nom,hp,force,defense)
+    def __init__(self,nom,hp,force,defense,dura_bouclier,classe):
+        super().__init__(nom,hp,force,defense,classe)
         self.dura_bouclier=dura_bouclier
         self.dura_bouclier=3 #Durabilité= 3 utilisations de la capacité
 
