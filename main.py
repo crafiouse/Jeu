@@ -10,8 +10,8 @@ def clear():
         system('clear') 
 
 from time import sleep
-import Joueur
-import Bot
+from Player import Joueur
+from Bot import Ennemi
 from Classes_mechants import Geant
 from Classes_mechants import Nain
 from Classes_mechants import Vampire

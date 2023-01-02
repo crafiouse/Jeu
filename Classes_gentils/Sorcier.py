@@ -1,4 +1,4 @@
-import Joueur
+from Player import Joueur
 class Sorcier(Joueur):
     def __init__(self,nom,hp,force,defense,nbr_potions):
         super().__init__(nom,hp,force,defense)

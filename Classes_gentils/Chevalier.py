@@ -1,4 +1,4 @@
-import Joueur
+from Player import Joueur
 class Chevalier(Joueur):
     def __init__(self,nom,hp,force,defense,dura_bouclier):
         super().__init__(nom,hp,force,defense)

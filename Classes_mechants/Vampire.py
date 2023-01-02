@@ -1,5 +1,5 @@
-import Bot
-class Vampire(Bot):
+from Bot import Ennemi
+class Vampire(Ennemi):
     def __init__(self, nom, hp, force, defense, valeur_xp, actions,):
         super().__init__(nom, hp, force, defense, valeur_xp, actions,)
         self.vampirisme_taux = 0.1  # Taux de vampirisme de 10%

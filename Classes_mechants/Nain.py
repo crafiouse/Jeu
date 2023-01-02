@@ -1,6 +1,6 @@
-import Bot
+from Bot import Ennemi
 import random
-class Dwarf(Bot):
+class Dwarf(Ennemi):
     def __init__(self, nom, hp, force, defense, valeur_xp, actions,):
         super().__init__(nom, hp, force, defense, valeur_xp, actions,)
         self.chance_dodge = 0.2  # Chance de 20% de dévier une attaque

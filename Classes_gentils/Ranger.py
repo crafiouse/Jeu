@@ -1,4 +1,4 @@
-import Joueur
+from Player import Joueur
 
 class Ranger(Joueur):
     def __init__(self, nom,hp,force,defense):
