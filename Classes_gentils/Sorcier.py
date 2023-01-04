@@ -9,5 +9,6 @@ class Sorcier(Joueur):
         if self.nbr_potions>0:
             self.hp+=10
             self.nbr_potions-=1
+            print("Le SOrcier se soigne")
         else:
             print("Il ne reste plus de potions")

@@ -1,20 +1,29 @@
+from random import randint
 from Bot import Ennemi
 class Geant(Ennemi):
-    def __init__(self, nom, hp, force,defense, valeur_xp,actions,classe):
+    def __init__(self, nom, hp, force,defense,seuil_execute, valeur_xp,actions,classe):
         super().__init__(nom, hp,force, defense, valeur_xp,actions,classe)
+        self.seuil_execute=seuil_execute
+        self.execute_actif=False
 
-    def choisir_action(self, player):
-        return super().choisir_action(player)
+    def execute(self, player):
+        # Activer l'exécution si le joueur a moins de PV que le seuil d'exécution
+        if player.hp <= self.execute_seuil:
+            self.execute_active = True
 
-    def update_execute_status(self, player):
-            if self.classe=="Geant":
-                execute_seuil = self.hp * 0.15
-                if self.hp <= execute_seuil:
-                    self.executed = True
-                    self.hp = 0
-                    print(f"{player.nom} a été exécuté par {self.nom}!")
-            else:
-                return None
+        # Infliger des dégâts supplémentaires si l'exécution est active
+        if self.execute_actif:
+            self.infliger_degat(player)*2
+            print(f"{player.nom} est en proie au Géant et subi plus de dégat")
+        else:
+            self.infliger_degat(player)
+
+    def choisir_action(self,player):
+        x= self.action[randint(1,len(self.action)-1)]
+        if x=="Attaque":
+            self.infliger_degat(player)
+        elif x=="Exécution":
+            self.execute(player)
 
     def infliger_degat(self, cible):
         return (super().infliger_degat(cible),super().update_poison_status(),self.update_execute_status(cible))

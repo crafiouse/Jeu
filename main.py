@@ -24,7 +24,7 @@ from entite import*
 # Définir les ennemis disponibles
 enemies = [
     Nain("Nain esquiveur", 50, 10, 5, 50,["Attaque", "Esquive"], "Nain"),
-    Geant("Géant exécuteur", 120, 15, 10, 80, ["Attaque", "Exécution"], "Géant"),
+    Geant("Géant exécuteur", 120, 15, 10,40, 80, ["Attaque", "Exécution"], "Géant"),
     Vampire("Vampire menaçant", 75, 12, 7, 75, ["Attaque", "Vampirisme"], "Vampire")
 ]
 
