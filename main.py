@@ -65,14 +65,25 @@ while player.hp > 0 and ennemi_aventure.hp > 0:
 
     # Exécuter l'action du joueur
     if action == "1":
-        player.infliger_degat(ennemi_aventure)
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.infliger_degat(ennemi_aventure)
     elif action == "2" and player.classe == "Sorcier":
-        player.soin()
-        ennemi_aventure.choisir_action(player)
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.soin()
     elif action == "2" and player.classe == "Chevalier":
-        player.parer()
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.parer()
     elif action == "2" and player.classe == "Ranger":
-        player.poison(ennemi_aventure)
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.poison(ennemi_aventure)
 
      # Mettre à jour le statut de poison du joueur (si applicable)
     player.update_poison_status()
@@ -82,7 +93,10 @@ while player.hp > 0 and ennemi_aventure.hp > 0:
     if ennemi_aventure.classe == "Géant":
         ennemi_aventure.execute(player)
         
-    ennemi_aventure.infliger_degat(player)
+    if ennemi_aventure.classe != "Vampire" :
+        ennemi_aventure.infliger_degat(player)
+    else:
+        ennemi_aventure.choisir_action(player)
     # Mettre à jour le statut d'exécution du joueur (si applicable)
     #ennemi_aventure.update_execute_status(ennemi_aventure)
 
