@@ -24,13 +24,13 @@ from entite import*
 # Définir les ennemis disponibles
 enemies = [
     Nain("Nain esquiveur", 50, 10, 5, 50,["Attaque", "Esquive"], "Nain"),
-    Geant("Géant exécuteur", 100, 15, 10,40, 80, ["Attaque", "Exécution"], "Géant"),
+    Geant("Géant exécuteur", 100, 15, 10,80, 80, ["Attaque", "Exécution"], "Géant"),
     Vampire("Vampire menaçant", 75, 12, 7, 75, ["Attaque", "Vampirisme"], "Vampire")
 ]
 
 # Choisir un ennemi aléatoirement
 #ennemi_aventure = random.choice(enemies)
-ennemi_aventure = enemies[1]#random.randint(1,3)-1]
+ennemi_aventure = enemies[random.randint(1,3)-1]
 # Demander à l'utilisateur quelle classe il veut utiliser
 print("Choisissez votre classe:")
 print("1. Mage (possède des potions)")
@@ -80,7 +80,7 @@ while player.hp > 0 and ennemi_aventure.hp > 0:
     # Exécuter l'action de l'ennemi
     #ennemi_aventure.choisir_action(player)
     if ennemi_aventure.classe == "Géant":
-        ennemi_aventure.update_execute_status(player)
+        ennemi_aventure.execute(player)
         
     ennemi_aventure.infliger_degat(player)
     # Mettre à jour le statut d'exécution du joueur (si applicable)
