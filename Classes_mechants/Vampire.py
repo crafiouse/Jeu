@@ -9,7 +9,7 @@ class Vampire(Ennemi):
         # Appliquer les dégâts normaux
         super().infliger_degat(cible)
         # Récupérer une partie des dégâts infligés sous forme de vie supplémentaire
-        self.hp += self.vampirisme_taux * (cible.attack - self.defense)
+        self.hp += self.vampirisme_taux * (cible.force - self.defense)
 
 
 

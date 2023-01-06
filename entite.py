@@ -27,10 +27,9 @@ class Entite:
             if self.poison_dura == 0:
                 self.poisoned = False
 
-    def update_execute_status(self, player,ennemi):
+    def update_execute_status(self, player):
             if self.classe=="Geant":
-                execute_seuil = self.hp * 0.15
-                if self.hp <= execute_seuil:
+                if self.hp <= 50:
                     self.executed = True
                     self.hp = 0
                     print(f"{player.nom} a été exécuté par {self.nom}!")
