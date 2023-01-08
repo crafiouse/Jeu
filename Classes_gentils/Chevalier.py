@@ -11,4 +11,10 @@ class Chevalier(Joueur):
             self.dura_bouclier-=1
             print(self.dura_bouclier)
         else:
-            print("Le bouclier n'est plus en état")
+            None
+    
+    def recevoir_degat(self, dmg):
+        return super().recevoir_degat(dmg)
+    
+    def infliger_degat(self, cible):
+        return super().infliger_degat(cible)

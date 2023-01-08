@@ -16,7 +16,7 @@ class Nain(Ennemi):
 
 
     def infliger_degat(self, cible):
-        return (super().infliger_degat(cible),super().update_poison_status())
+        return super().infliger_degat(cible)
     
     def choisir_action(self, player):
         return super().choisir_action(player)

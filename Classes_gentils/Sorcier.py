@@ -12,3 +12,9 @@ class Sorcier(Joueur):
             print("Le SOrcier se soigne")
         else:
             print("Il ne reste plus de potions")
+
+    def recevoir_degat(self, dmg):
+        return super().recevoir_degat(dmg)
+
+    def infliger_degat(self, cible):
+        return super().infliger_degat(cible)

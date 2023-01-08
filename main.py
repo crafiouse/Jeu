@@ -30,7 +30,7 @@ enemies = [
 
 # Choisir un ennemi aléatoirement
 #ennemi_aventure = random.choice(enemies)
-ennemi_aventure = enemies[random.randint(1,3)-1]
+ennemi_aventure = enemies[0]#enemies[random.randint(1,3)-1]
 # Demander à l'utilisateur quelle classe il veut utiliser
 print("Choisissez votre classe:")
 print("1. Mage (possède des potions)")
@@ -94,7 +94,7 @@ while player.hp > 0 and ennemi_aventure.hp > 0:
         ennemi_aventure.execute(player)
         
     if ennemi_aventure.classe != "Vampire" :
-        ennemi_aventure.infliger_degat(player)
+        player.recevoir_degat(5)
     else:
         ennemi_aventure.choisir_action(player)
     # Mettre à jour le statut d'exécution du joueur (si applicable)

@@ -7,9 +7,10 @@ class Vampire(Ennemi):
 
     def Vampirisme(self, cible):
         # Appliquer les dégâts normaux
-        super().infliger_degat(cible)
+        if self.hp > 0:
+            super().infliger_degat(cible)
         # Récupérer une partie des dégâts infligés sous forme de vie supplémentaire
-        self.hp += self.vampirisme_taux * (cible.force - self.defense)
+            self.hp += self.vampirisme_taux * (cible.force - self.defense)
 
 
 
