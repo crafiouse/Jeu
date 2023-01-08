@@ -8,12 +8,13 @@ class Geant(Ennemi):
 
     def execute(self, player):
         # Activer l'exécution si le joueur a moins de PV que le seuil d'exécution
-        if player.hp <= self.execute_seuil:
-            self.execute_active = True
+        if player.hp <= self.seuil_execute:
+            self.execute_actif = True
 
         # Infliger des dégâts supplémentaires si l'exécution est active
         if self.execute_actif:
-            self.infliger_degat(player)*2
+            dmg=(self.force-player.defense)*2
+            player.recevoir_degat(dmg)
             print(f"{player.nom} est en proie au Géant et subi plus de dégat")
         else:
             self.infliger_degat(player)
@@ -26,5 +27,5 @@ class Geant(Ennemi):
             self.execute(player)
 
     def infliger_degat(self, cible):
-        return (super().infliger_degat(cible),super().update_poison_status(),self.update_execute_status(cible))
+        return (super().infliger_degat(cible),super().update_poison_status())
 

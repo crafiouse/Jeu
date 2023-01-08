@@ -7,3 +7,9 @@ class Ranger(Joueur):
     def poison(self, enemy):
         enemy.poisoned = True
         enemy.poison_dura = 3
+        
+    def recevoir_degat(self, dmg):
+        return super().recevoir_degat(dmg)
+    
+    def infliger_degat(self, cible):
+        return super().infliger_degat(cible)

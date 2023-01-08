@@ -61,5 +61,9 @@ class Joueur(Entite):
     def use_item(self,item):
         pass
 
+    def recevoir_degat(self, dmg):
+        return super().recevoir_degat(dmg)
 
+    def infliger_degat(self, cible):
+        return super().infliger_degat(cible)
 

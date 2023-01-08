@@ -24,13 +24,13 @@ from entite import*
 # Définir les ennemis disponibles
 enemies = [
     Nain("Nain esquiveur", 50, 10, 5, 50,["Attaque", "Esquive"], "Nain"),
-    Geant("Géant exécuteur", 120, 15, 10,40, 80, ["Attaque", "Exécution"], "Géant"),
+    Geant("Géant exécuteur", 100, 15, 10,80, 80, ["Attaque", "Exécution"], "Géant"),
     Vampire("Vampire menaçant", 75, 12, 7, 75, ["Attaque", "Vampirisme"], "Vampire")
 ]
 
 # Choisir un ennemi aléatoirement
 #ennemi_aventure = random.choice(enemies)
-ennemi_aventure = enemies[random.randint(1,3)-1]
+ennemi_aventure = enemies[0]#enemies[random.randint(1,3)-1]
 # Demander à l'utilisateur quelle classe il veut utiliser
 print("Choisissez votre classe:")
 print("1. Mage (possède des potions)")
@@ -65,21 +65,38 @@ while player.hp > 0 and ennemi_aventure.hp > 0:
 
     # Exécuter l'action du joueur
     if action == "1":
-        player.infliger_degat(ennemi_aventure)
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.infliger_degat(ennemi_aventure)
     elif action == "2" and player.classe == "Sorcier":
-        player.soin()
-        ennemi_aventure.choisir_action(player)
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.soin()
     elif action == "2" and player.classe == "Chevalier":
-        player.parer()
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.parer()
     elif action == "2" and player.classe == "Ranger":
-        player.poison(ennemi_aventure)
+        if ennemi_aventure.classe == "Nain":
+            ennemi_aventure.prendre_dmg(player.force-ennemi_aventure.defense)
+        else:
+            player.poison(ennemi_aventure)
 
      # Mettre à jour le statut de poison du joueur (si applicable)
     player.update_poison_status()
 
     # Exécuter l'action de l'ennemi
     #ennemi_aventure.choisir_action(player)
-    ennemi_aventure.infliger_degat(player)
+    if ennemi_aventure.classe == "Géant":
+        ennemi_aventure.execute(player)
+        
+    if ennemi_aventure.classe != "Vampire" :
+        player.recevoir_degat(5)
+    else:
+        ennemi_aventure.choisir_action(player)
     # Mettre à jour le statut d'exécution du joueur (si applicable)
     #ennemi_aventure.update_execute_status(ennemi_aventure)
 
